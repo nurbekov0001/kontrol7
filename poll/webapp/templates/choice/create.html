@@ -3,7 +3,9 @@
 {% block page_header %}Добавить Ответ{% endblock page_header %}
 
 {% block content %}
+    {% block creat %}
     <form action="" method="post">
         {% include "partial/form.html" with button_text="Создать ответ опросу" %}
     </form>
+        {% endblock %}
 {% endblock content %}

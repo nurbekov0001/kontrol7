@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block menu %}
 
     <li><a href="{% url "poll_update" poll.id %}">Редактировать опрос</a></li>
@@ -16,12 +16,22 @@
     </br>
 
 
-    <p> {% for choice in poll.poll.all %}
+    {% for choice in poll.poll.all %}
+        <div class="panel">
+        <p>Ответ:  <a href="{% url 'view' choice.id %}">{{ choice.text }}</a>
+        <button><a href="{% url "delete" choice.id %}">
+            <img src="{% static "img/delete.png"  %}
+    "width="15" height="15" alt="delete" style="vertical-align: middle"> </a> </button>
+            <button><a href="{% url "update" choice.id %}">
+            <img src="{% static "img/update.png"  %}
+    "width="15" height="15" alt="delete" style="vertical-align: middle"> </a> </button>
+        </p><p>
         Опроса: {{ choice.poll.question }}<br/>
-        Ответ:  <a href="{% url 'view' choice.id %}">{{ choice.text }}</a> <br/>
-         </br>    </br>
 
-    {% endfor %}</p>
+        </p>
+        </div>
+    </br>    </br>
+    {% endfor %}
     <a href="{% url "poll_list" %}">Главная страница</a>
 
 {% endblock %}

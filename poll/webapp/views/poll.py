@@ -54,7 +54,6 @@ class PollCreateView(CreateView):
 
 
     def get_success_url(self):
-
         return reverse('poll_view', kwargs={'pk': self.object.pk})
 
 
@@ -66,7 +65,7 @@ class PollChoiceCreate(CreateView):
     def form_valid(self, form):
         poll = get_object_or_404(Poll, pk=self.kwargs.get('pk'))
         choice = form.save(commit=False)
-        choice.project = poll
+        choice.poll = poll
         choice.save()
         form.save_m2m()
         return redirect('poll_view', pk=poll.pk)

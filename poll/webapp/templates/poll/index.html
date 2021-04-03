@@ -1,12 +1,23 @@
 {% extends "base.html" %}
+
 {% block content %}
 
+
     <h1>Project list</h1><br/>
+
+    <form action=""  method="post">
+        {% include "partial/form.html" with button_text="Создать ответ опросу" %}
+    </form>
+
+
+
     {% if not polls %}
         <h2>НЕТ ЗАДАЧ</h2>
     {% else %}
         {% include "partial/search_form.html" %}
     {% endif %}
+
+
 <br/><br/>
 
     {% for poll in polls %}
