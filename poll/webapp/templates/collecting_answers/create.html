@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<form action="{% url 'answer_add' pk %}" method="post">
+
+   <br/>
+  <p>Опрос: {{poll.question}}</p>
+    <p>Answer:
+    <select name="answer" id="">
+        {% for i in  answers%}
+        <option>{{ i.text}}</option>
+  {% endfor %}
+    </select>
+</p>
+{#    <form action="" method="post">#}
+{#        {% include "partial/form.html" with button_text="Создать ответ опросу" %}#}
+{#    </form>#}
+
+<br/>
+    <a href="{% url "poll_list" %}">Главная страница</a>
+</form>
+{% endblock content %}

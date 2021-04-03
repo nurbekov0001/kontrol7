@@ -8,7 +8,8 @@ from webapp.views import (
     PollView,
     ChoiceView,
     ChoiceUpdateView,
-    CoiceDeleteView
+    CoiceDeleteView,
+    AnswerCreate
 
 )
 
@@ -26,6 +27,6 @@ urlpatterns = [
     path('<int:pk>/update/', ChoiceUpdateView.as_view(), name='update'),
     path('<int:pk>/delete/', CoiceDeleteView.as_view(), name='delete'),
 
-
+    path('<int:pk>/add/', AnswerCreate.as_view(), name='answer_add'),
 
 ]

@@ -5,6 +5,8 @@
     <li><a href="{% url "poll_update" poll.id %}">Редактировать опрос</a></li>
     <li><a href="{% url "poll_delete" poll.id %}">Удалить  опрос </a></li>
         <li><a href="{% url "poll_choice_add" poll.id %}">Cоздание Ответа </a></li>
+            <li><a href="{% url "answer_add" poll.id %}">Cоздание Ответа формой </a></li>
+
 
 {% endblock menu %}
 {% block page_header %}Опрос: {{ poll.id }}{% endblock page_header %}
