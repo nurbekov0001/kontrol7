@@ -3,8 +3,64 @@
   "model": "webapp.poll",
   "pk": 1,
   "fields": {
-    "question": "почему audi крутая машина",
+    "question": "почему audi крутая машина11",
     "created_at": "2021-04-03T05:50:15.346Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 2,
+  "fields": {
+    "question": "почему ауди rs быстрая",
+    "created_at": "2021-04-03T06:51:40.379Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 3,
+  "fields": {
+    "question": "asdfdsfas",
+    "created_at": "2021-04-03T08:10:53.091Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 4,
+  "fields": {
+    "question": "fasdfasdf",
+    "created_at": "2021-04-03T08:10:57.830Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 5,
+  "fields": {
+    "question": "5",
+    "created_at": "2021-04-03T08:11:03.426Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 6,
+  "fields": {
+    "question": "6",
+    "created_at": "2021-04-03T08:11:08.248Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 7,
+  "fields": {
+    "question": "7",
+    "created_at": "2021-04-03T08:11:12.378Z"
+  }
+},
+{
+  "model": "webapp.poll",
+  "pk": 8,
+  "fields": {
+    "question": "8",
+    "created_at": "2021-04-03T08:11:15.598Z"
   }
 },
 {
@@ -13,6 +69,30 @@
   "fields": {
     "text": "потому что это audi",
     "poll": 1
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 2,
+  "fields": {
+    "text": "потому что крутая машина",
+    "poll": 1
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 3,
+  "fields": {
+    "text": "fdsfasdfsd111",
+    "poll": 2
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 4,
+  "fields": {
+    "text": "aasdsdfas",
+    "poll": 2
   }
 },
 {
