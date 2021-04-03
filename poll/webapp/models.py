@@ -21,3 +21,15 @@ class Choice(models.Model):
 
     def __str__(self):
         return f'{self.id}. {self.text}:{self.poll}'
+
+
+class Answer (models.Model):
+    poll_poll = models.ForeignKey("webapp.Poll", related_name='poll_poll', on_delete=models.CASCADE,
+                             verbose_name="Опрос")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+
+    possible_answer = models.ForeignKey("webapp.Choice", related_name='poll_answer', on_delete=models.CASCADE,
+                             verbose_name="Вариант ответа")
+
+    def __str__(self):
+        return f'{self.id}. {self.poll_poll}:{self.created_at}.{self.possible_answer}'
