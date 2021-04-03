@@ -3,5 +3,11 @@ from webapp.views.poll import (
     PollDeleteView,
     PollChoiceCreate,
     PollCreateView,
-    PollUpdateView
+    PollUpdateView,
+    PollView,
+)
+from webapp.views.choice import (
+    ChoiceView,
+    ChoiceUpdateView,
+    CoiceDeleteView
 )
