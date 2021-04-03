@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Project list</h1><br/>
+    {% if not polls %}
+        <h2>НЕТ ЗАДАЧ</h2>
+    {% else %}
+        {% include "partial/search_form.html" %}
+    {% endif %}
+<br/><br/>
+
+    {% for poll in polls %}
+            <p><a href="{% url "poll_view" poll.pk %}"> Опрос: {{ poll.question }}</a><br/>
+              Дата  {{ poll.created_at }}<br/>
+
+
+
+        <br/>
+    {% endfor %}
+     {% include 'partial/paginate.html' %}
+{% endblock %}

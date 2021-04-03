@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block menu %}
+
+    <li><a href="{% url "poll_update" poll.id %}">Редактировать опрос</a></li>
+    <li><a href="{% url "poll_delete" poll.id %}">Удалить  опрос </a></li>
+        <li><a href="{% url "poll_choice_add" poll.id %}">Cоздание Ответа </a></li>
+
+{% endblock menu %}
+{% block page_header %}Опрос: {{ poll.id }}{% endblock page_header %}
+
+{% block content %}
+    <p> Poll: {{ poll.question }}</p>
+    <p>Data: {{ poll.created_at}}</p>
+
+    </br>
+
+
+    <p> {% for choice in poll.poll.all %}
+        Опроса: {{ choice.poll.question }}<br/>
+        Ответ:  <a href="{% url 'view' choice.id %}">{{ choice.text }}</a> <br/>
+         </br>    </br>
+
+    {% endfor %}</p>
+    <a href="{% url "poll_list" %}">Главная страница</a>
+
+{% endblock %}

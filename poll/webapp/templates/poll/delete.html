@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтвердите удаление проекта{% endblock %}
+{% block page_header %}Вы уверены, что хотите удалить проект {{ poll.question }}?{% endblock page_header %}
+
+{% block content%}
+    <form action="{% url "poll_delete" poll.id %}", method="POST">
+        {% include 'partial/form.html' with button_text="Да, я хочу удалить этот проект" %}
+           <button> <a href="{% url "poll_view" poll.id %}">Отмена!</a> </button>
+    </form>
+{% endblock content %}
