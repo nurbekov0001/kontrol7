@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Новостной портал номер [-1] в мире{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+</head>
+<body>
+    <nav class="navbar" >
+        <ul class="menu">
+            <li><a href="{% url "project_list" %}">Все проекты</a></li>
+                    <li><a href="{% url "project_add" %}">Создать Проект</a></li>
+
+
+            {% block menu %}{% endblock %}
+        </ul>
+    </nav>
+    <div class="container">
+    {% block page_header %}{% endblock %}
+    {% block content %}{% endblock %}
+
+
+    </div>
+</body>
+</html>
