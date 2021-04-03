@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block menu %}<li><a href="{% url "view" choice.id %}">Вернуться к ответу </a></li>{% endblock menu %}
+{% block page_header %}Редактирвоать ответ {{ choice.id }}{% endblock page_header %}
+
+{% block content %}
+    <form action="{% url "update" choice.id %}" method="post">
+        {% include "partial/form.html" with button_text="Редактировать ответ" %}
+    </form>
+{% endblock content %}

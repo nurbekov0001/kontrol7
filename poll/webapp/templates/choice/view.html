@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block menu %}
+
+    <li><a href="{% url "update" choice.id %}">Редактировать ответ</a></li>
+    <li><a href="{% url "delete" choice.id %}">Удалить ответ</a></li>
+{% endblock menu %}
+{% block page_header %}Ответы {{ choice.id }}{% endblock page_header %}
+{% block content %}
+    <p>Опрос: {{ choice.poll.question}}</p>
+    <p> Ответ: {{ choice.text}}</p>
+
+
+
+    <a href="{% url "poll_list" %}">Главная страница </a>
+{% endblock %}
