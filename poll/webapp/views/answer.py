@@ -1,5 +1,5 @@
 from django.views.generic import View
-from webapp.models import Answer, Poll
+from webapp.models import Answer, Poll, Choice
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 
 class AnswerCreate(View):
@@ -13,11 +13,13 @@ class AnswerCreate(View):
 
     def post (self, request, *args, **kwargs):
         poll = get_object_or_404(Poll, pk=kwargs.get('pk'))
-        choice = get_object_or_404(Answer,)
+        print(request.POST)
+        choice = get_object_or_404(Choice, pk=request.POST['answer'])
+
         answer = Answer.objects.create(
             poll_poll=poll,
-            possible_answer=
+            possible_answer=choice,
         )
 
-        return redirect('poll_view', pk=kwargs.id)
+        return redirect('poll_view', pk=kwargs.get('pk'))
 

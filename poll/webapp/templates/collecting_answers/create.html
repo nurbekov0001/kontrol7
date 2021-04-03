@@ -5,19 +5,17 @@
 {% block content %}
 
 <form action="{% url 'answer_add' pk %}" method="post">
-
+{% csrf_token %}
    <br/>
   <p>Опрос: {{poll.question}}</p>
     <p>Answer:
-    <select name="answer" id="">
+    <select  name="answer" id="">
         {% for i in  answers%}
-        <option>{{ i.text}}</option>
+        <option value="{{ i.pk }}">{{ i.text}}</option>
   {% endfor %}
     </select>
 </p>
-{#    <form action="" method="post">#}
-{#        {% include "partial/form.html" with button_text="Создать ответ опросу" %}#}
-{#    </form>#}
+<p><input type="submit" value="Сохранить"> </p>
 
 <br/>
     <a href="{% url "poll_list" %}">Главная страница</a>
