@@ -9,10 +9,10 @@ from django.utils.http import urlencode
 
 class PollIndexView(ListView):
 
-    template_name = 'project/index.html'
+    template_name = 'poll/index.html'
     model = Poll
-    context_object_name = 'Polls'
-    ordering = ('question', '-created_at')
+    context_object_name = 'polls'
+    ordering = ('question', 'created_at')
     paginate_by = 5
     paginate_orphans = 1
 
@@ -26,8 +26,8 @@ class PollIndexView(ListView):
 
         if self.search_data:
             queryset = queryset.filter(
-                Q(name__icontains=self.search_data) |
-                Q(description__icontains=self.search_data)
+                Q(question__icontains=self.search_data) |
+                Q(created_at__icontains=self.search_data)
             )
         return queryset
 
@@ -48,7 +48,7 @@ class PollIndexView(ListView):
 
 class PollCreateView(CreateView):
 
-    template_name = 'Poll/create.html'
+    template_name = 'poll/create.html'
     model = Poll
     form_class = PollForm
 
@@ -65,7 +65,7 @@ class PollChoiceCreate(CreateView):
 
     def form_valid(self, form):
         poll = get_object_or_404(Poll, pk=self.kwargs.get('pk'))
-        choce = form.save(commit=False)
+        choice = form.save(commit=False)
         choice.project = poll
         choice.save()
         form.save_m2m()
